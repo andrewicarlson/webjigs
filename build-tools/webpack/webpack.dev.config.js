@@ -8,7 +8,7 @@ module.exports = merge(common, {
   mode: 'development',
   entry: [
     'babel-polyfill',
-    path.join(process.cwd(), 'ts/index.ts'),
+    path.join(process.cwd(), 'js/index.ts'),
     path.join(process.cwd(), 'css/index.scss')
   ],
   devtool: '#source-map',
