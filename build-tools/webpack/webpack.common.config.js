@@ -1,10 +1,23 @@
+const path = require('path');
+
 module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: ['babel-loader', 'ts-loader', 'tslint-loader'],
-        exclude: /node_modules/
+        test: /\.ts?$/,
+        use: [
+          'babel-loader', 
+          'ts-loader', 
+          {
+            loader: 'tslint-loader',
+            options: {
+              configFile: path.join(process.cwd(), '/linting/tslint.json'),
+              tsConfigFile: path.join(process.cwd(), 'tsconfig.json'),
+              emitErrors: true
+            },
+          },
+        ],
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
@@ -19,7 +32,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.scss', '.css', '.js'],
     modules: [
-      './node_modules'
+      'node_modules'
     ]
   }
 };
