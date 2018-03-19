@@ -4,7 +4,7 @@
   "description": "A jig is a custom tool used in manufacturing. From [Wikipedia](https://en.wikipedia.org/wiki/Jig_(tool))\r > A jig's primary purpose is to provide repeatability, accuracy, and interchangeability in the manufacturing of products.",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --hot --config build-tools/webpack/webpack.dev.config.js",
+    "start": "node_modules/.bin/webpack-dev-server --hot --config ./webpack.entries.config.js",
     "test": "node_modules/.bin/karma start testing/karma.conf.js"
   },
   "repository": {
@@ -47,6 +47,7 @@
     "stylelint-webpack-plugin": "0.10.3",
     "ts-loader": "4.0.1",
     "tslint": "5.9.1",
+    "tslint-config-airbnb": "5.7.0",
     "tslint-loader": "3.6.0",
     "typescript": "2.7.2",
     "webpack": "4.1.1",

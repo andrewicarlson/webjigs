@@ -1,9 +1,12 @@
-var webpackConfig = require('./webpack/webpack.common.config');
+var webpackConfig = require(process.cwd() + '/build-tools/webpack/webpack.common.config');
 
 module.exports = function(config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine', 'mocha'],
+    basePath: process.cwd(),
+    frameworks: [
+      'jasmine', 
+      'mocha'
+    ],
     plugins: [
       require('karma-jasmine'),
       require('karma-mocha'),
@@ -13,19 +16,27 @@ module.exports = function(config) {
       require('karma-phantomjs-launcher'),
       require('karma-coverage')
     ],
-    files: ['./ts/**/*.spec*'],
-    reporters: ['progress', 'mocha', 'coverage'],
+    files: [
+      '/**/*.spec.*'
+    ],
+    reporters: [
+      'progress', 
+      'mocha', 
+      'coverage'
+    ],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS'],
+    browsers: [
+      'PhantomJS'
+    ],
     singleRun: true,
     concurrency: Infinity,
     webpack: webpackConfig,
     failOnEmptyTestSuite: false,
     preprocessors: {
-      '**/*.spec*': ['webpack']
+      '**/*.spec.*': ['webpack']
     }
   })
 };

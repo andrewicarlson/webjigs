@@ -2,14 +2,13 @@ const common = require('./webpack.common.config');
 const merge = require('webpack-merge');
 const path = require('path');
 
-const public = path.join(process.cwd(), 'public');
+const app = path.join(process.cwd(), '/app');
+const public = path.join(app, '/public');
 
 module.exports = merge(common, {
   mode: 'development',
   entry: [
-    'babel-polyfill',
-    path.join(process.cwd(), 'js/index.ts'),
-    path.join(process.cwd(), 'css/index.scss')
+    'babel-polyfill'
   ],
   devtool: '#source-map',
   devServer: {
@@ -22,7 +21,6 @@ module.exports = merge(common, {
     hot: true
   },
   output: {
-    path: public,
     filename: 'bundle.js'
   }
 });
