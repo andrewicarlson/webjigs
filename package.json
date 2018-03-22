@@ -4,7 +4,8 @@
   "description": "A jig is a custom tool used in manufacturing. From [Wikipedia](https://en.wikipedia.org/wiki/Jig_(tool))\r > A jig's primary purpose is to provide repeatability, accuracy, and interchangeability in the manufacturing of products.",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --hot --config ./webpack.entries.config.js",
+    "build": "node_modules/.bin/webpack --config ./build-tools/webpack/webpack.build.config.js",
+    "start": "node_modules/.bin/webpack-dev-server --hot --config ./build-tools/webpack/webpack.dev.config.js",
     "test": "node_modules/.bin/karma start testing/karma.conf.js"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.6.1",
     "css-loader": "0.28.11",
+    "extract-text-webpack-plugin": "3.0.2",
     "jasmine-core": "3.1.0",
     "jasmine-ts": "0.2.1",
     "karma": "2.0.0",
@@ -45,16 +47,13 @@
     "stylelint": "9.1.1",
     "stylelint-config-standard": "18.2.0",
     "stylelint-webpack-plugin": "0.10.3",
-    "ts-loader": "4.0.1",
+    "ts-loader": "3.5.0",
     "tslint": "5.9.1",
     "tslint-config-airbnb": "5.7.0",
     "tslint-loader": "3.6.0",
     "typescript": "2.7.2",
-    "webpack": "4.1.1",
-    "webpack-cli": "2.0.12",
-    "webpack-dev-middleware": "2.0.6",
-    "webpack-dev-server": "3.1.1",
-    "webpack-hot-middleware": "2.21.1",
+    "uglifyjs-webpack-plugin": "1.2.4",
+    "webpack": "3.11.0",
     "webpack-merge": "4.1.2"
   }
 }

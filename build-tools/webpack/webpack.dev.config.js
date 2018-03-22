@@ -1,3 +1,4 @@
+const base = require(process.cwd() + '/webpack.entries.config');
 const common = require('./webpack.common.config');
 const merge = require('webpack-merge');
 const path = require('path');
@@ -5,8 +6,7 @@ const path = require('path');
 const app = path.join(process.cwd(), '/app');
 const public = path.join(app, '/public');
 
-module.exports = merge(common, {
-  mode: 'development',
+module.exports = merge(base, common, {
   entry: [
     'babel-polyfill'
   ],

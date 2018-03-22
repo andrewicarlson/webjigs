@@ -1,14 +1,13 @@
-const dev = require('./build-tools/webpack/webpack.dev.config');
-const merge = require('webpack-merge');
 const path = require('path');
-const app = path.join(process.cwd(), '/app');
+const appDirectory = path.join(process.cwd(), '/app');
 
-module.exports = merge(dev, {
+module.exports = {
     entry: [
-        path.join(app, '/index.ts'),
-        path.join(app, '/index.scss')
+        path.join(appDirectory, '/index.ts'),
+        path.join(appDirectory, '/index.scss')
     ],
     output: {
-        path: path.join(app, '/public')
+        filename: '[name].bundle.js',
+        path: path.join(appDirectory, '/public'),
     }
-});
+};

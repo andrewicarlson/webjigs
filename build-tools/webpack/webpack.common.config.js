@@ -4,16 +4,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /\.tsx?$/,
         use: [
-          'babel-loader', 
-          'ts-loader', 
+          'babel-loader?cacheDirectory', 
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: path.join(process.cwd(), 'tsconfig.json')
+            }
+          }, 
           {
             loader: 'tslint-loader',
             options: {
               configFile: path.join(process.cwd(), '/linting/tslint.json'),
               tsConfigFile: path.join(process.cwd(), 'tsconfig.json'),
-              emitErrors: true
+              emitErrors: true,
+              failOnHint: true,
             },
           },
         ],
@@ -21,7 +27,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          'style-loader', 
+          'css-loader', 
+          'sass-loader'
+        ]
       },
       {
         test: /\.json?$/,
@@ -32,7 +42,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.scss', '.css', '.js'],
     modules: [
-      'node_modules'
+      './node_modules'
     ]
   }
 };
