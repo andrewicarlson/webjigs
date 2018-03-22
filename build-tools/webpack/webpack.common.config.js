@@ -2,17 +2,16 @@ const path = require('path');
 
 module.exports = {
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.tsx?$/,
         use: [
-          'babel-loader?cacheDirectory', 
+          'babel-loader?cacheDirectory',
           {
             loader: 'ts-loader',
             options: {
               configFile: path.join(process.cwd(), 'tsconfig.json')
             }
-          }, 
+          },
           {
             loader: 'tslint-loader',
             options: {
@@ -24,14 +23,6 @@ module.exports = {
           },
         ],
         exclude: /node_modules/,
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader', 
-          'css-loader', 
-          'sass-loader'
-        ]
       },
       {
         test: /\.json?$/,
