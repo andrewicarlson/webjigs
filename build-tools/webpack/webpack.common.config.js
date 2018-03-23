@@ -4,8 +4,19 @@ module.exports = {
   module: {
     rules: [{
         test: /\.tsx?$/,
-        use: [
-          'babel-loader?cacheDirectory',
+        use: [{
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['babel-preset-env', {
+                  'targets': {
+                    'browsers': ['last 2 versions']
+                  }
+                }]
+              ],
+              plugins: ['transform-runtime'],
+            },
+          },
           {
             loader: 'ts-loader',
             options: {
