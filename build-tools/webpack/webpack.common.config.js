@@ -1,4 +1,5 @@
 const path = require('path');
+const cwd = process.cwd();
 
 module.exports = {
   module: {
@@ -20,14 +21,14 @@ module.exports = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: path.join(process.cwd(), 'tsconfig.json')
+              configFile: path.join(cwd, 'tsconfig.json')
             }
           },
           {
             loader: 'tslint-loader',
             options: {
-              configFile: path.join(process.cwd(), '/linting/tslint.json'),
-              tsConfigFile: path.join(process.cwd(), 'tsconfig.json'),
+              configFile: path.join(cwd, '/linting/tslint.json'),
+              tsConfigFile: path.join(cwd, 'tsconfig.json'),
               emitErrors: true,
               failOnHint: true,
             },

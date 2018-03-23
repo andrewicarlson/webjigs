@@ -1,9 +1,10 @@
-const base = require(process.cwd() + '/webpack.entries.config');
+const cwd = process.cwd();
+const base = require(cwd + '/webpack.entries.config');
 const common = require('./webpack.common.config');
 const merge = require('webpack-merge');
 const path = require('path');
 
-const app = path.join(process.cwd(), '/app');
+const app = path.join(cwd, '/app');
 const public = path.join(app, '/public');
 
 module.exports = merge(base, common, {
