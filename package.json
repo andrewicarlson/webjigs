@@ -4,8 +4,10 @@
   "description": "A jig is a custom tool used in manufacturing. From [Wikipedia](https://en.wikipedia.org/wiki/Jig_(tool))\r > A jig's primary purpose is to provide repeatability, accuracy, and interchangeability in the manufacturing of products.",
   "main": "index.js",
   "scripts": {
-    "build": "node_modules/.bin/webpack --config ./build-tools/webpack/webpack.build.config.js",
-    "start": "node_modules/.bin/webpack-dev-server --hot --config ./build-tools/webpack/webpack.dev.config.js",
+    "app:build": "node_modules/.bin/webpack --config ./build-tools/webpack/webpack.build.config.js",
+    "app:start": "node_modules/.bin/webpack-dev-server --hot --config ./build-tools/webpack/webpack.dev.config.js",
+    "jigs:build": "node_modules/.bin/tsc",
+    "jigs:watch": "",
     "test": "node_modules/.bin/karma start testing/karma.conf.js"
   },
   "repository": {
