@@ -7,7 +7,9 @@ const entryObject = entryArray.reduce((acc, item) => {
   const fileArray = item.split('/');
   const fileName = fileArray[fileArray.length - 1];
   const name = fileName.split('.')[0];
-  acc[path.join(name, name)] = item;
+  const index = path.join(name, name);
+  const found = acc[index];
+  acc[index] = found ? [item].concat(found) : item;
   return acc;
 }, {});
 
@@ -16,5 +18,5 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: distDirectory,
-  },
+  }
 };
