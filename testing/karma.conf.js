@@ -2,7 +2,7 @@ var webpackConfig = require('../build-tools/webpack/webpack.common.config');
 
 module.exports = function(config) {
   config.set({
-    basePath: '../',
+    basePath: process.cwd(),
     frameworks: [
       'jasmine', 
       'mocha'
@@ -17,7 +17,7 @@ module.exports = function(config) {
       require('karma-coverage')
     ],
     files: [
-      '!(node_modules)/**/*.spec.*'
+      '**/*.spec.*'
     ],
     reporters: [
       'progress', 
@@ -36,7 +36,7 @@ module.exports = function(config) {
     webpack: webpackConfig,
     failOnEmptyTestSuite: false,
     preprocessors: {
-      '**/*.ts': ['webpack']
+      '**/*.spec.*': ['webpack']
     }
   })
 };

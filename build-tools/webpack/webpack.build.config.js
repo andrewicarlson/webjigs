@@ -1,10 +1,11 @@
-const base = require(process.cwd() + '/webpack.entries.config');
 const common = require('./webpack.common.config');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const componentEntries = require('./webpack.componentEntries.config');
 
-module.exports = merge(base, common, {
+module.exports = merge(componentEntries, common, {
   module: {
     rules: [{
       test: /\.scss$/,

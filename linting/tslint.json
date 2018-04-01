@@ -17,6 +17,7 @@
     "align": [true, "parameters", "statements", "elements", "members"],
     "indent": [true, "spaces", 2],
     "ter-indent": [false],
-    "strict-boolean-expressions": false
+    "strict-boolean-expressions": false,
+    "eofline": false
   }
 }
