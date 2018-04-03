@@ -1,0 +1,13 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "target": "es6",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "allowJs": true
+  },
+  "exclude": ["node_modules"]
+}
