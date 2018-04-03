@@ -17,7 +17,7 @@ module.exports = function(config) {
       require('karma-coverage')
     ],
     files: [
-      '**/*.spec.*'
+      '!(node_modules)/**/*.spec.*'
     ],
     reporters: [
       'progress', 
