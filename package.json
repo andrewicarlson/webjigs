@@ -7,7 +7,8 @@
     "app:build": "node_modules/.bin/webpack --config ./build-tools/webpack/webpack.build.config.js",
     "app:clear": "rimraf dist/*",
     "app:start": "node_modules/.bin/webpack-dev-server --hot --config ./build-tools/webpack/webpack.dev.config.js",
-    "jigs:build": "npm run app:clear && npm run app:build",
+    "jigs:bundle": "node_modules/.bin/webpack --config ./build-tools/webpack/webpack.jigs.config.js",
+    "jigs:build": "npm run app:clear && npm run jigs:bundle",
     "jigs:watch": "",
     "test": "node_modules/.bin/karma start testing/karma.conf.js"
   },
@@ -31,6 +32,7 @@
     "babel-preset-env": "1.6.1",
     "css-loader": "0.28.11",
     "extract-text-webpack-plugin": "3.0.2",
+    "html-webpack-plugin": "3.2.0",
     "jasmine-core": "3.1.0",
     "jasmine-ts": "0.2.1",
     "karma": "2.0.0",
