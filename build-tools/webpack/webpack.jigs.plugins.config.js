@@ -14,7 +14,8 @@ const examplesArray = glob.sync('./jigs/**/*.example*');
 examplesArray.forEach((example) => {
   const fileName = example.split('/').pop();
   const key = fileName.split('.')[0];
-  const entryKey = `${key}\\${key}`;
+  const entryKey = `${key}\/${key}`;
+
   pluginsArray.push(
     new HtmlWebpackPlugin({
       title: key,
