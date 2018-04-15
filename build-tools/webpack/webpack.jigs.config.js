@@ -5,6 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const jigsConfig = require('./webpack.jigEntries.config');
 const jigsPlugins = require('./webpack.jigs.plugins.config');
+const path = require('path');
+const distDirectory = path.join(process.cwd(), 'dist');
 
 module.exports = merge(jigsConfig, common, {
   module: {
@@ -18,6 +20,10 @@ module.exports = merge(jigsConfig, common, {
         fallback: 'style-loader'
       })
     }, ]
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: distDirectory,
   },
   plugins: [
     new ExtractTextPlugin('[name].bundle.css'),

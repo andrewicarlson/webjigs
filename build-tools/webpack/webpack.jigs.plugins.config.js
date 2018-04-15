@@ -2,11 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const templatePath = path.join(process.cwd(), 'build-tools', 'webpack', 'jigTable.template.js');
 const glob = require('glob');
+
 const pluginsArray = [
   new HtmlWebpackPlugin({
     template: templatePath,
     title: 'JIG TABLE',
-    chunks:[]
+    chunks:[],
   })
 ];
 
@@ -20,12 +21,13 @@ examplesArray.forEach((example) => {
     new HtmlWebpackPlugin({
       title: key,
       chunks: [entryKey],
-      meta: {viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'},
       filename: `${entryKey}.html`,
       template: example,
-      inject: true
+      templateParameters: {
+        script: `${key}.bundle.js`,
+        title: key
+      }
     })
   );
 });
-
 module.exports = pluginsArray;

@@ -1,5 +1,8 @@
 const path = require('path');
 const cwd = process.cwd();
+const partials = path.join(cwd, 'templates', 'partials');
+
+console.log("PARTIALS", partials);
 
 module.exports = {
   module: {
@@ -39,6 +42,15 @@ module.exports = {
       {
         test: /\.json?$/,
         loader: 'json'
+      },
+      {
+        test: /\.hbs$/,
+        loader: 'handlebars-loader',
+        query: {
+          partialDirs: [
+            partials
+          ]
+        }
       }
     ]
   },
