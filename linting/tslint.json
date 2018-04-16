@@ -1,0 +1,23 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "no-unused-variable": true,
+    "no-var-keyword": true,
+    "no-console": [false],
+    "space-before-function-paren": [true, "always"],
+    "only-arrow-functions": [false],
+    "ter-prefer-arrow-callback": [true, {
+      "allowNamedFunctions": true
+    }],
+    "no-this-assignment": [false],
+    "no-var-self": [false],
+    "align": [true, "parameters", "statements", "elements", "members"],
+    "indent": [true, "spaces", 2],
+    "ter-indent": [false],
+    "strict-boolean-expressions": false,
+    "eofline": false
+  }
+}
